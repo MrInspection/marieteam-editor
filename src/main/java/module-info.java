@@ -6,7 +6,6 @@ module fr.spectronlabs.marieteameditor {
   requires io;
   requires java.sql;
 
-
   opens fr.spectronlabs.marieteameditor to javafx.fxml;
   exports fr.spectronlabs.marieteameditor;
 }

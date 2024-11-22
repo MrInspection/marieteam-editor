@@ -1,0 +1,63 @@
+/* Overall form styling */
+.root {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f9f9f7;
+    padding: 20px;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-font-size: 16px;
+    -fx-background-color: #f0f0f5;
+    -fx-border-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-padding: 8px 12px;
+    -fx-width: full;
+}
+
+/* Button */
+.button {
+    -fx-font-size: 14px;
+    -fx-background-color: #007aff;
+    -fx-text-fill: white;
+    -fx-padding: 12px 24px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,122,255,0.5), 10, 0.0, 0, 4);
+}
+
+.button:hover {
+    -fx-background-color: #0051a8;
+}
+
+.text-field, .text-area {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-background-color: #f9f9f9;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+    -fx-border-color: #dcdcdc;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #007aff;
+}
+
+/* GridPane labels */
+label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* Image Preview */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 8, 0, 0, 0);
+}
+
+.vbox {
+    spacing: 20px;
+}
+
+.hbox {
+    spacing: 30px;
+}
