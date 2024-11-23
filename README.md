@@ -1,14 +1,19 @@
 # MarieTeam Editor
 
+![](marieteam-editor.png)
+
 MarieTeam Projects is a series of three distinct school projects, each focused on building a different type of
 application: a web application, a desktop application, and a mobile app.
 
-MarieTeam Editor is a , init logic
+The MarieTeam Editor is a desktop application that allows users to edit, and export boats.
+This project is built using JavaFX and Java Database Connectivity (JDBC) to connect to a PostgreSQL database. 
 
-## ☑️ How it can be improved ?
+> The data used in this project are the data from the [MarieTeam Web](https://github.com/MrInspection/marieteam-web) project.
 
-TODO : Improve this README.md
+### How to run this project?
+To run this project on your local environment, follow the following steps :
 
-## 📗 How to run this project ?
-
-TODO : Improve this README.md
+- Clone the repository to your local machine or download the source code.
+- Configure the database connection in the `Constants.java` file.
+- Execute the `EditorApplication.java` file to start the application.
+- Start editing, and exporting boats to PDF Files.
