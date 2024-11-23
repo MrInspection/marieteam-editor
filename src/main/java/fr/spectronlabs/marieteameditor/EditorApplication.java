@@ -1,5 +1,6 @@
 package fr.spectronlabs.marieteameditor;
 
+import fr.spectronlabs.marieteameditor.constants.Constants;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,10 +12,9 @@ public class EditorApplication extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-
     FXMLLoader fxmlLoader = new FXMLLoader(EditorApplication.class.getResource("editor-view.fxml"));
-    Scene scene = new Scene(fxmlLoader.load(), 1500, 800);
-    stage.setTitle("MarieTeam Editor");
+    Scene scene = new Scene(fxmlLoader.load(), Constants.APP_WIDTH, Constants.APP_HEIGHT);
+    stage.setTitle(Constants.APP_NAME);
     stage.setResizable(false);
     stage.setScene(scene);
     stage.show();
