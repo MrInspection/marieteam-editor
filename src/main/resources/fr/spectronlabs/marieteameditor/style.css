@@ -5,30 +5,50 @@
     padding: 20px;
 }
 
-/* ComboBox */
+/* ComboBox (Updated to match input and text-area styling) */
 .combo-box {
-    -fx-font-size: 16px;
-    -fx-background-color: #f0f0f5;
-    -fx-border-radius: 10px;
+    -fx-font-size: 14px;
+    -fx-background-color: #f9f9f9;
+    -fx-border-radius: 8px;
     -fx-border-width: 2px;
-    -fx-padding: 8px 12px;
-    -fx-width: full;
+    -fx-border-color: #dcdcdc;
+    -fx-padding: 10px;
 }
 
-/* Button */
+.combo-box:focused {
+    -fx-border-color: #007aff;
+}
+
+/* Button (Primary) */
 .button {
     -fx-font-size: 14px;
     -fx-background-color: #007aff;
     -fx-text-fill: white;
     -fx-padding: 12px 24px;
-    -fx-border-radius: 10px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,122,255,0.5), 10, 0.0, 0, 4);
+    -fx-border-radius: 8px;
 }
 
 .button:hover {
     -fx-background-color: #0051a8;
 }
 
+/* Secondary Button Variant */
+.button-secondary {
+    -fx-font-size: 14px;
+    -fx-background-color: #f0f0f5;
+    -fx-text-fill: black;
+    -fx-padding: 12px 24px;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+    -fx-border-color: #dcdcdc;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #dbeafe;
+    -fx-border-radius: 8px;
+}
+
+/* TextField and TextArea (Same style for both) */
 .text-field, .text-area {
     -fx-font-size: 14px;
     -fx-padding: 10px;
@@ -52,6 +72,8 @@ label {
 /* Image Preview */
 .image-view {
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 8, 0, 0, 0);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
 }
 
 .vbox {

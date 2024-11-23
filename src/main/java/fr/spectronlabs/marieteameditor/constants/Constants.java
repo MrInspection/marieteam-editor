@@ -8,6 +8,6 @@ public final class Constants {
 
   public static final String APP_NAME = "MarieTeam Editor";
 
-  public static final double APP_WIDTH = 1500;
+  public static final double APP_WIDTH = 1600;
   public static final double APP_HEIGHT = 700;
 }

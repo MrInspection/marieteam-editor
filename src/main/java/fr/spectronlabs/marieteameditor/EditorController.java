@@ -79,20 +79,15 @@ public class EditorController {
       String[] equipments = equipmentsField.getText().split(",");
       selectedBoat.setEquipments(List.of(equipments));
 
-      // DatabaseConnection database = new DatabaseConnection(Constants.DATABASE_URL, Constants.DATABASE_USER, Constants.DATABASE_PASSWORD);
-      // BoatService service = new BoatService(new BoatQuery(database.getConnection()));
-      // service.updateBoat(selectedBoat);
-
       showAlertDialog(Alert.AlertType.INFORMATION, "Changes Saved", "The changes have been saved successfully.");
     } catch (Exception e) {
-      e.printStackTrace();
+      System.out.println(" ❌ Save Failed: " + e.getMessage());
       showAlertDialog(Alert.AlertType.ERROR, "Save Failed", "An error occurred while saving the changes.");
     }
   }
 
   @FXML
   protected void onExportPdf() {
-
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Export PDF");
     alert.setHeaderText("Choose Export Option");
@@ -129,7 +124,7 @@ public class EditorController {
         PdfBuilder.exportBoat(selectedBoat, file.getAbsolutePath());
         showAlertDialog(Alert.AlertType.INFORMATION, "Export successful", "The boat has been successfully exported to PDF.");
       } catch (Exception e) {
-        e.printStackTrace();
+        System.out.println(" ❌ PDF Export Failed: " + e.getMessage());
         showAlertDialog(Alert.AlertType.ERROR, "Export failed", "An error occurred while exporting the boat to PDF.");
       }
     }
@@ -146,7 +141,7 @@ public class EditorController {
         PdfBuilder.exportAllBoats(boats, file.getAbsolutePath());
         showAlertDialog(Alert.AlertType.INFORMATION, "Export successful", "All boats have been successfully export to PDF.");
       } catch (Exception e) {
-        e.printStackTrace();
+        System.out.println(" ❌ PDF Export Failed: " + e.getMessage());
         showAlertDialog(Alert.AlertType.ERROR, "Export failed", "An error occurred while exporting the boats to PDF.");
       }
     }
