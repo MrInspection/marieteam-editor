@@ -81,7 +81,7 @@ public class EditorController {
 
       showAlertDialog(Alert.AlertType.INFORMATION, "Changes Saved", "The changes have been saved successfully.");
     } catch (Exception e) {
-      System.out.println(" ❌ Save Failed: " + e.getMessage());
+      System.err.println(" ❌ Save Failed: " + e.getMessage());
       showAlertDialog(Alert.AlertType.ERROR, "Save Failed", "An error occurred while saving the changes.");
     }
   }
@@ -124,7 +124,7 @@ public class EditorController {
         PdfBuilder.exportBoat(selectedBoat, file.getAbsolutePath());
         showAlertDialog(Alert.AlertType.INFORMATION, "Export successful", "The boat has been successfully exported to PDF.");
       } catch (Exception e) {
-        System.out.println(" ❌ PDF Export Failed: " + e.getMessage());
+        System.err.println(" ❌ PDF Export Failed: " + e.getMessage());
         showAlertDialog(Alert.AlertType.ERROR, "Export failed", "An error occurred while exporting the boat to PDF.");
       }
     }
@@ -141,7 +141,7 @@ public class EditorController {
         PdfBuilder.exportAllBoats(boats, file.getAbsolutePath());
         showAlertDialog(Alert.AlertType.INFORMATION, "Export successful", "All boats have been successfully export to PDF.");
       } catch (Exception e) {
-        System.out.println(" ❌ PDF Export Failed: " + e.getMessage());
+        System.err.println(" ❌ PDF Export Failed: " + e.getMessage());
         showAlertDialog(Alert.AlertType.ERROR, "Export failed", "An error occurred while exporting the boats to PDF.");
       }
     }

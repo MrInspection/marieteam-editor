@@ -2,9 +2,9 @@ package fr.spectronlabs.marieteameditor.constants;
 
 public final class Constants {
 
-  public static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/marieteam?currentSchema=public";
-  public static final String DATABASE_USER = "postgres";
-  public static final String DATABASE_PASSWORD = "admin";
+  public static final String DATABASE_URL = "jdbc:postgresql://ep-muddy-pine-a20hhkk6.eu-central-1.aws.neon.tech/marieteam?user=christina-ia_owner&password=twjL1Bm2QEre&sslmode=require";
+  public static final String DATABASE_USER = "christina-ia_owner";
+  public static final String DATABASE_PASSWORD = "twjL1Bm2QEre";
 
   public static final String APP_NAME = "MarieTeam Editor";
 
