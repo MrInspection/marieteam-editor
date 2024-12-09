@@ -1,5 +1,8 @@
 package fr.spectronlabs.marieteameditor;
 
+import java.io.File;
+import java.util.List;
+
 import fr.spectronlabs.marieteameditor.constants.Constants;
 import fr.spectronlabs.marieteameditor.database.BoatQuery;
 import fr.spectronlabs.marieteameditor.database.DatabaseConnection;
@@ -7,14 +10,20 @@ import fr.spectronlabs.marieteameditor.models.Boat;
 import fr.spectronlabs.marieteameditor.services.BoatService;
 import fr.spectronlabs.marieteameditor.utils.PdfBuilder;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
-import java.io.File;
-import java.util.List;
-
+/**
+ * Contrôleur principal de l'interface graphique de MarieTeam Editor.
+ * Gère les interactions utilisateur et la logique de l'application.
+ */
 public class EditorController {
 
   @FXML
@@ -32,6 +41,10 @@ public class EditorController {
   private List<Boat> boats;
   private Boat selectedBoat;
 
+  /**
+   * Initialise le contrôleur et charge les données initiales.
+   * Établit la connexion à la base de données et remplit le sélecteur de bateaux.
+   */
   @FXML
   public void initialize() {
     DatabaseConnection database = new DatabaseConnection(Constants.DATABASE_URL, Constants.DATABASE_USER, Constants.DATABASE_PASSWORD);
@@ -61,6 +74,10 @@ public class EditorController {
     }
   }
 
+  /**
+   * Gère la sauvegarde des modifications apportées au bateau sélectionné.
+   * Vérifie la validité des données avant la sauvegarde.
+   */
   @FXML
   protected void onSaveChanges() {
     if (selectedBoat == null) {
@@ -86,6 +103,10 @@ public class EditorController {
     }
   }
 
+  /**
+   * Gère l'export des données en PDF.
+   * Propose à l'utilisateur d'exporter soit le bateau sélectionné, soit tous les bateaux.
+   */
   @FXML
   protected void onExportPdf() {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -109,7 +130,7 @@ public class EditorController {
   }
 
   private void exportSelectedBoat() {
-    if(selectedBoat == null) {
+    if (selectedBoat == null) {
       showAlertDialog(Alert.AlertType.ERROR, "No Boat Selected", "Please select a boat to export.");
       return;
     }

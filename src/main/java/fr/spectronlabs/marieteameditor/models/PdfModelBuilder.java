@@ -11,20 +11,20 @@ public class PdfModelBuilder {
 
   public static Paragraph createTitle(String title) {
     return new Paragraph(title)
-            .setBold()
-            .setFontSize(24)
-            .setTextAlignment(TextAlignment.CENTER)
-            .setMarginBottom(20);
+        .setBold()
+        .setFontSize(24)
+        .setTextAlignment(TextAlignment.CENTER)
+        .setMarginBottom(20);
   }
 
   public static Paragraph createBoatDetails(Boat boat) {
     return new Paragraph(
-            "Name: " + boat.getName() + "\n" +
-                    "Length: " + boat.getLength() + " m\n" +
-                    "Width: " + boat.getWidth() + " m\n" +
-                    "Speed: " + boat.getSpeed() + " knots")
-            .setFontSize(12)
-            .setMarginBottom(10);
+        "Name: " + boat.getName() + "\n" +
+            "Length: " + boat.getLength() + " m\n" +
+            "Width: " + boat.getWidth() + " m\n" +
+            "Speed: " + boat.getSpeed() + " knots")
+        .setFontSize(12)
+        .setMarginBottom(10);
   }
 
   public static List createEquipmentList(java.util.List<String> equipments) {

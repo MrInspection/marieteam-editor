@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 class DatabaseConnectionTest {
 
   private DatabaseConnection database = new DatabaseConnection(Constants.DATABASE_URL, Constants.DATABASE_USER, Constants.DATABASE_PASSWORD);
@@ -33,6 +34,4 @@ class DatabaseConnectionTest {
       System.out.println(boat.toString());
     }
   }
-
-
 }

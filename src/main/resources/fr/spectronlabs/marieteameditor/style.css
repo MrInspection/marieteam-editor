@@ -71,7 +71,7 @@ label {
 
 /* Image Preview */
 .image-view {
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 8, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 0, 0);
     -fx-border-color: black;
     -fx-border-width: 2px;
 }

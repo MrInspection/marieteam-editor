@@ -1,12 +1,20 @@
 package fr.spectronlabs.marieteameditor.database;
 
-import fr.spectronlabs.marieteameditor.models.Boat;
-
-import java.sql.*;
+import java.sql.Array;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import fr.spectronlabs.marieteameditor.models.Boat;
+
+/**
+ * Gère les requêtes SQL relatives aux bateaux.
+ * Fournit les méthodes pour interagir avec la table des bateaux.
+ */
 public class BoatQuery {
 
   private final Connection connection;
@@ -15,6 +23,12 @@ public class BoatQuery {
     this.connection = connection;
   }
 
+  /**
+   * Récupère tous les bateaux de la base de données.
+   *
+   * @return Liste des bateaux
+   * @throws RuntimeException si la requête échoue
+   */
   public List<Boat> getAllBoats() {
     List<Boat> boats = new ArrayList<>();
     String query = "SELECT * FROM public.\"Boat\"";
@@ -33,8 +47,8 @@ public class BoatQuery {
         // Parse the PostgreSQL array to a Java List<String>
         Array equipmentArray = res.getArray("equipment");
         List<String> equipment = equipmentArray != null
-                ? Arrays.asList((String[]) equipmentArray.getArray())
-                : new ArrayList<>(); // Handle null equipment
+            ? Arrays.asList((String[]) equipmentArray.getArray())
+            : new ArrayList<>(); // Handle null equipment
 
         Boat b = new Boat(id, name, length, width, speed, imageUrl, equipment);
         boats.add(b);
