@@ -39,9 +39,9 @@ public class Boat {
   public Boat(String id, String name, double length, double width, double speed, String imageUrl, List<String> equipments) {
     this.id = id;
     this.name = name;
-    this.length = length;
-    this.width = width;
-    this.speed = speed;
+    setLength(length);
+    setWidth(width);
+    setSpeed(speed);
     this.imageUrl = Optional.ofNullable(String.valueOf(imageUrl));
     this.equipments = (equipments != null) ? new ArrayList<>(equipments) : new ArrayList<>();
   }
@@ -133,16 +133,34 @@ public class Boat {
     this.equipments = (equipments != null) ? new ArrayList<>(equipments) : new ArrayList<>();
   }
   
+  /**
+   * Ajoute un équipement à la liste des équipements du bateau.
+   * L'équipement ne sera pas ajouté s'il est null ou vide.
+   *
+   * @param equipment L'équipement à ajouter
+   */
   public void addEquipment(String equipment) {
     if (equipment != null && !equipment.isBlank()) {
       equipments.add(equipment);
     }
   }
 
+  /**
+   * Retire un équipement de la liste des équipements du bateau.
+   *
+   * @param equipment L'équipement à retirer
+   * @return true si l'équipement a été retiré, false sinon
+   */
   public boolean removeEquipment(String equipment) {
     return equipments.remove(equipment);
   }
 
+  /**
+   * Retourne une chaîne formatée contenant tous les équipements du bateau,
+   * séparés par des virgules.
+   *
+   * @return La liste des équipements sous forme de chaîne
+   */
   public String getFormattedEquipments() {
     return String.join(", ", equipments);
   }

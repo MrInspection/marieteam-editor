@@ -13,7 +13,8 @@ import fr.spectronlabs.marieteameditor.models.Boat;
 
 /**
  * Gère les requêtes SQL relatives aux bateaux.
- * Fournit les méthodes pour interagir avec la table des bateaux.
+ * Cette classe fournit une interface entre l'application et la base de données
+ * pour toutes les opérations concernant les bateaux.
  */
 public class BoatQuery {
 
@@ -24,10 +25,12 @@ public class BoatQuery {
   }
 
   /**
-   * Récupère tous les bateaux de la base de données.
+   * Récupère tous les bateaux stockés dans la base de données.
+   * Cette méthode effectue une requête SQL pour obtenir les informations complètes
+   * de chaque bateau, y compris leurs équipements.
    *
-   * @return Liste des bateaux
-   * @throws RuntimeException si la requête échoue
+   * @return Une liste contenant tous les bateaux avec leurs informations complètes
+   * @throws RuntimeException si la requête échoue ou si la connexion est perdue
    */
   public List<Boat> getAllBoats() {
     List<Boat> boats = new ArrayList<>();

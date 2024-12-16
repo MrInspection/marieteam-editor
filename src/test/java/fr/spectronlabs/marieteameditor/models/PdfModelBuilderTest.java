@@ -1,5 +1,7 @@
 package fr.spectronlabs.marieteameditor.models;
 
+import static fr.spectronlabs.marieteameditor.utils.PdfBuilder.exportBoat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.File;
@@ -8,6 +10,7 @@ import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.util.List;
 
+import com.itextpdf.layout.element.Paragraph;
 import org.junit.jupiter.api.Test;
 
 import fr.spectronlabs.marieteameditor.constants.Constants;
@@ -35,11 +38,10 @@ class PdfModelBuilderTest {
 
     // Générer le PDF avec PdfBuilder
     PdfBuilder pdfBuilder = new PdfBuilder();
-    pdfBuilder.exportBoat(boat, outputPath);
+    exportBoat(boat, outputPath);
 
     // Vérifier que le fichier a été créé
     assertNotNull(file);
-    assertNotNull(file.exists());
     System.out.println("PDF généré avec succès à : " + file.getAbsolutePath());
   }
 }

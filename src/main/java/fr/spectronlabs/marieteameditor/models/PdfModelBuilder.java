@@ -7,8 +7,18 @@ import com.itextpdf.layout.properties.TextAlignment;
 
 import java.net.MalformedURLException;
 
+/**
+ * Utilitaire pour la construction des éléments PDF.
+ * Cette classe fournit des méthodes statiques pour créer différentes sections
+ * du document PDF pour l'export des informations des bateaux.
+ */
 public class PdfModelBuilder {
 
+  /**
+   * Crée un titre formaté pour le document PDF.
+   * @param title Le texte du titre
+   * @return Un paragraphe formaté comme titre
+   */
   public static Paragraph createTitle(String title) {
     return new Paragraph(title)
         .setBold()
@@ -17,6 +27,11 @@ public class PdfModelBuilder {
         .setMarginBottom(20);
   }
 
+  /**
+   * Crée une section détaillée pour un bateau.
+   * @param boat Le bateau dont les informations doivent être formatées
+   * @return Un paragraphe contenant les détails du bateau
+   */
   public static Paragraph createBoatDetails(Boat boat) {
     return new Paragraph(
         "Name: " + boat.getName() + "\n" +

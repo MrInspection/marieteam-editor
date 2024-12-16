@@ -23,6 +23,7 @@ import javafx.stage.FileChooser;
 /**
  * Contrôleur principal de l'interface graphique de MarieTeam Editor.
  * Gère les interactions utilisateur et la logique de l'application.
+ * Cette classe fait le lien entre l'interface utilisateur (FXML) et les services métier.
  */
 public class EditorController {
 
@@ -43,7 +44,9 @@ public class EditorController {
 
   /**
    * Initialise le contrôleur et charge les données initiales.
-   * Établit la connexion à la base de données et remplit le sélecteur de bateaux.
+   * Cette méthode est appelée automatiquement par JavaFX après le chargement du FXML.
+   * Elle établit la connexion à la base de données, charge la liste des bateaux
+   * et configure les listeners pour la mise à jour du formulaire.
    */
   @FXML
   public void initialize() {
@@ -58,6 +61,13 @@ public class EditorController {
     boatSelector.valueProperty().addListener((observable, oldValue, newValue) -> updateFormForSelectedBoat(newValue));
   }
 
+  /**
+   * Met à jour le formulaire avec les informations du bateau sélectionné.
+   * Remplit tous les champs du formulaire avec les données du bateau choisi
+   * dans le ComboBox et met à jour l'aperçu de l'image si disponible.
+   *
+   * @param selectedBoatName Le nom du bateau sélectionné dans le ComboBox
+   */
   private void updateFormForSelectedBoat(String selectedBoatName) {
     for (Boat boat : boats) {
       if (boat.getName().equals(selectedBoatName)) {
@@ -76,7 +86,10 @@ public class EditorController {
 
   /**
    * Gère la sauvegarde des modifications apportées au bateau sélectionné.
-   * Vérifie la validité des données avant la sauvegarde.
+   * Vérifie la validité des données avant la sauvegarde et affiche un message
+   * de confirmation ou d'erreur selon le résultat.
+   * Note: Les modifications sont actuellement sauvegardées uniquement en mémoire.
+   * Une future version devrait implémenter la persistance en base de données.
    */
   @FXML
   protected void onSaveChanges() {
@@ -105,7 +118,9 @@ public class EditorController {
 
   /**
    * Gère l'export des données en PDF.
-   * Propose à l'utilisateur d'exporter soit le bateau sélectionné, soit tous les bateaux.
+   * Affiche une boîte de dialogue permettant à l'utilisateur de choisir entre
+   * l'export du bateau sélectionné ou de tous les bateaux de la flotte.
+   * L'utilisateur peut ensuite choisir l'emplacement du fichier PDF à générer.
    */
   @FXML
   protected void onExportPdf() {
@@ -129,6 +144,12 @@ public class EditorController {
     });
   }
 
+  /**
+   * Exporte les informations du bateau sélectionné en PDF.
+   * Vérifie qu'un bateau est sélectionné, demande à l'utilisateur de choisir
+   * l'emplacement du fichier et génère le PDF avec les informations détaillées
+   * du bateau.
+   */
   private void exportSelectedBoat() {
     if (selectedBoat == null) {
       showAlertDialog(Alert.AlertType.ERROR, "No Boat Selected", "Please select a boat to export.");
@@ -151,6 +172,11 @@ public class EditorController {
     }
   }
 
+  /**
+   * Exporte les informations de tous les bateaux en PDF.
+   * Demande à l'utilisateur de choisir l'emplacement du fichier et génère
+   * un PDF contenant les informations détaillées de tous les bateaux de la flotte.
+   */
   private void exportAllBoats() {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Export MarieTeam Fleet to PDF");
@@ -168,6 +194,14 @@ public class EditorController {
     }
   }
 
+  /**
+   * Affiche une boîte de dialogue avec un message pour l'utilisateur.
+   * Utilisé pour les confirmations, les erreurs et les messages d'information.
+   *
+   * @param type Le type d'alerte (ERROR, INFORMATION, CONFIRMATION)
+   * @param title Le titre de la boîte de dialogue
+   * @param content Le message à afficher
+   */
   private void showAlertDialog(Alert.AlertType type, String title, String content) {
     Alert dialog = new Alert(type);
     dialog.setTitle(title);

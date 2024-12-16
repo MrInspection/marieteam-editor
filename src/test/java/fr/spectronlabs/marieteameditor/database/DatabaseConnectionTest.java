@@ -34,4 +34,11 @@ class DatabaseConnectionTest {
       System.out.println(boat.toString());
     }
   }
+
+  @Test
+  void testInvalidDatabaseConnection() {
+    DatabaseConnection connection = new DatabaseConnection(
+        "invalid_url", "invalid_user", "invalid_password");
+    assertThrows(RuntimeException.class, () -> connection.getConnection());
+  }
 }

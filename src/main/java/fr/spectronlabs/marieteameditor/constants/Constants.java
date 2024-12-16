@@ -1,13 +1,30 @@
 package fr.spectronlabs.marieteameditor.constants;
 
+import java.io.FileInputStream;
+import java.util.Properties;
 
+/**
+ * Classe de constantes pour l'application MarieTeam Editor.
+ * Centralise toutes les constantes utilisées dans l'application, notamment
+ * les paramètres de connexion à la base de données et les configurations de l'interface.
+ */
 public final class Constants {
 
-  public static final String DATABASE_URL = "jdbc:postgresql://ep-muddy-pine-a20hhkk6.eu-central-1.aws.neon.tech/marieteam?user=christina-ia_owner&password=twjL1Bm2QEre&sslmode=require";
-  public static final String DATABASE_USER = "christina-ia_owner";
-  public static final String DATABASE_PASSWORD = "twjL1Bm2QEre";
+  public static final String DATABASE_URL;
+  public static final String DATABASE_USER;
+  public static final String DATABASE_PASSWORD;
 
-  // Constantes gérant les configurations de l'application
+  static {
+    Properties props = new Properties();
+    try(FileInputStream input = new FileInputStream(".properties")) {
+      props.load(input);
+      DATABASE_URL = props.getProperty("database.url");
+      DATABASE_USER = props.getProperty("database.user");
+      DATABASE_PASSWORD = props.getProperty("database.password");
+    } catch (Exception e) {
+      throw new RuntimeException("Unable to load properties file");
+    }
+  }
 
   public static final String APP_NAME = "MarieTeam Editor";
   public static final double APP_WIDTH = 1600;
