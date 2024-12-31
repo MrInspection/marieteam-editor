@@ -9,6 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.sql.Connection;
 import java.util.List;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import fr.spectronlabs.marieteameditor.constants.Constants;
@@ -24,6 +26,8 @@ class BoatTest {
   private final List<Boat> boats = service.fetchAllBoats();
 
   @Test
+  @Order(1)
+  @DisplayName("1. Test de récupération d'un bateau spécifique")
   void TestGetASpecificBoat() {
     assertNotNull(boats);
     Boat boat = boats.getFirst();
@@ -32,23 +36,13 @@ class BoatTest {
     boat.setName("Vogue Merry");
     System.out.println(boats.toString());
 
-    /* boat.setSpeed(0);
-    System.out.println(boats.toString()); // Ça fonctionne !
-
-    boat.setSpeed(-1);
-    System.out.println(boats.toString());
-
-    boat.setLength(0);
-    System.out.println(boats.toString()); // Ça fonctionne également !
-
-    boat.setWidth(0);
-    System.out.println(boats.toString()); */
-
     boat.addEquipment("Anchor");
     System.out.println(boat.getEquipments());
   }
 
   @Test
+  @Order(2)
+  @DisplayName("2. Test du formatage des équipements")
   void testGetFormattedEquipments() {
     Boat boat = new Boat("1", "Test", 10, 10, 10);
     boat.addEquipment("First Aid Kit");
@@ -62,6 +56,8 @@ class BoatTest {
   }
 
   @Test
+  @Order(3)
+  @DisplayName("3. Test de la gestion des équipements")
   void testEquipmentManagement() {
     Boat boat = new Boat("1", "Test", 10, 5, 20);
 
@@ -80,6 +76,8 @@ class BoatTest {
   }
 
   @Test
+  @Order(4)
+  @DisplayName("4. Test des modifications des données avec valeurs invalides")
   void testModifyBoatData() {
     Boat boat = new Boat("1", "Test", 10, 10, 10);
     boat.addEquipment("First Aid Kit");
@@ -104,6 +102,8 @@ class BoatTest {
   }
 
   @Test
+  @Order(5)
+  @DisplayName("5. Test des contraintes de validation")
   void testValidationConstraints() {
     // Test des contraintes de validation (longueur, largeur, vitesse négatives)
     assertThrows(IllegalArgumentException.class, () -> new Boat("1", "Test", -1, 5, 10));

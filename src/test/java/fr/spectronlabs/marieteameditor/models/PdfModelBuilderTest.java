@@ -1,7 +1,6 @@
 package fr.spectronlabs.marieteameditor.models;
 
 import static fr.spectronlabs.marieteameditor.utils.PdfBuilder.exportBoat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.File;
@@ -10,7 +9,7 @@ import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.util.List;
 
-import com.itextpdf.layout.element.Paragraph;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import fr.spectronlabs.marieteameditor.constants.Constants;
@@ -27,6 +26,7 @@ class PdfModelBuilderTest {
   private final List<Boat> boats = service.fetchAllBoats();
 
   @Test
+  @DisplayName("Test de génération d'un PDF avec les informations d'un bateau")
   void testBuildPdfModel() throws MalformedURLException, FileNotFoundException {
     // Vérification des données
     assertNotNull(boats);

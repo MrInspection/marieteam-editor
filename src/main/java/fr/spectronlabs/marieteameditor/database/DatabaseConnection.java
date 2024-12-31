@@ -24,7 +24,7 @@ public class DatabaseConnection {
     try {
       this.connection = DriverManager.getConnection(databaseUrl, user, password);
       if (connection != null) {
-        System.out.println("\n ☑️ SpectronAtoms: Connection to the database established successfully \n");
+        System.out.println("\n☑️ MarieTeam: connection established to the database \n");
       }
     } catch (SQLException e) {
       throw new RuntimeException("Unable to connect to the database");
