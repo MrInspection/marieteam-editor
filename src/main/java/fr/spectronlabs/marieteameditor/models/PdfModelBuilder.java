@@ -1,8 +1,10 @@
 package fr.spectronlabs.marieteameditor.models;
 
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.layout.element.*;
-
+import com.itextpdf.layout.element.Div;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.List;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.TextAlignment;
 
 import java.net.MalformedURLException;

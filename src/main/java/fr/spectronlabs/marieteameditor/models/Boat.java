@@ -10,15 +10,10 @@ import java.util.Optional;
  * physiques et ses équipements.
  */
 public class Boat {
-
-  private String id;
-
+  private final String id;
   private String name;
-
   private double length;
-
   private double width;
-
   private double speed;
 
   private Optional<String> imageUrl;
@@ -132,7 +127,7 @@ public class Boat {
   public void setEquipments(List<String> equipments) {
     this.equipments = (equipments != null) ? new ArrayList<>(equipments) : new ArrayList<>();
   }
-  
+
   /**
    * Ajoute un équipement à la liste des équipements du bateau.
    * L'équipement ne sera pas ajouté s'il est null ou vide.

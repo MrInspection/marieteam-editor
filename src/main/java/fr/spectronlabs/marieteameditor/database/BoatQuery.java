@@ -17,7 +17,6 @@ import fr.spectronlabs.marieteameditor.models.Boat;
  * pour toutes les opérations concernant les bateaux.
  */
 public class BoatQuery {
-
   private final Connection connection;
 
   public BoatQuery(Connection connection) {

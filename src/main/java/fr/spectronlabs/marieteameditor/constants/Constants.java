@@ -9,7 +9,6 @@ import java.util.Properties;
  * les paramètres de connexion à la base de données et les configurations de l'interface.
  */
 public final class Constants {
-
   public static final String DATABASE_URL;
   public static final String DATABASE_USER;
   public static final String DATABASE_PASSWORD;

@@ -35,7 +35,6 @@ public class DatabaseConnection {
     return connection;
   }
 
-
   public void closeConnection() {
     try {
       connection.close();
