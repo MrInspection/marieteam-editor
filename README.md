@@ -14,6 +14,7 @@ This project is built using JavaFX and Java Database Connectivity (JDBC) to conn
 To run this project on your local environment, follow the following steps :
 
 - Clone the repository to your local machine or download the source code.
+- Run the [docker-compose.yml](docker-compose.yaml) file to start the PostgreSQL database.
 - Configure the database connection in the `.properties` file.
 - Execute the `EditorApplication.java` file to start the application.
-- Start editing, and exporting boats to PDF Files.
+- Start editing and exporting boats to PDF Files.
